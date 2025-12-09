@@ -9,10 +9,7 @@ const restartButton = document.querySelector(".btn-restart")
 const highScoreElement=document.querySelector("#high-score")
 const scoreElement = document.querySelector("#score");
 const timeElement = document.querySelector("#time");
-
-
-
-
+ 
 
 const blockHeight = 50;
 const blockWidth = 50 ;
@@ -50,7 +47,7 @@ for (let row = 0 ; row<rows ; row++){
          const block = document.createElement("div");
     block.classList.add("block")
     board.appendChild(block);
-   block.innerText=`${row}-${col}`
+//    block.innerText=`${row}-${col}`
     blocks [`${row}-${col}`] = block
     }
 }
@@ -67,7 +64,7 @@ function render(){
    }else if (direction === "down"){
     head = {x:snake[0].x + 1 , y:snake[0].y}
    }else if(direction === "up"){
-    head = {x:snake[0].x -1, y:snake[0].y}
+    head = {x:snake[0].x - 1, y:snake[0].y}
    }
 
 // Wall collision Logic
@@ -141,6 +138,7 @@ restartButton.addEventListener("click",restartGame)
 function restartGame() {
 
     blocks[ `${food.x}-${food.y}` ].classList.remove("food")
+    snake.pop()  //add the new line pop
     snake.forEach(segment => {
          blocks[`${segment.x}-${segment.y}`].classList.add("fill")
         
