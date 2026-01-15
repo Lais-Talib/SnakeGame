@@ -131,7 +131,6 @@ startButton.addEventListener("click", ()=>{
     },1000)
 })
  
-
 // Restart button 
 restartButton.addEventListener("click",restartGame)
 
